@@ -14,6 +14,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 ul[class],
 ol[class],
@@ -24,21 +26,37 @@ blockquote,
 dl,
 dd {
   margin: 0;
+
 }
 
-html,body {
+html, body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Montserrat', sans-serif;
-}
+  overflow-x: hidden;
 
+  &.lock {
+    overflow: hidden;
+  }
+}
 
 ul[class],
 ol[class] {
   list-style: none;
 }
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
@@ -55,14 +73,28 @@ textarea,
 select {
   font: inherit;
 }
+
 button,
 button:active,
+button:hover,
 button:focus,
 input,
 input:active,
-input:focus{
+input:hover,
+input:focus,
+textarea,
+textarea:active,
+textarea:hover,
+textarea:focus {
+  cursor: pointer;
+  border: none;
   outline: none;
 }
+
+textarea {
+  resize: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

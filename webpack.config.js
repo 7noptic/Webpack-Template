@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+//const { CleanWebpackPlugin } = require('clean-webpack-plugcssin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
@@ -39,6 +39,7 @@ const optimization = () => {
     if (isProd) {
         config.minimizer = [
             new OptimizeCssAssetWebpackPlugin(),
+            new OptimizeCssAssetWebpackPlugin(),
             new TerserWebpackPlugin()
         ]
     }
@@ -60,7 +61,7 @@ const cssLoaders = extra => {
         {
             loader: 'css-loader',
             options: {
-                url: false
+                url: true
             }
         }
     ];
@@ -96,7 +97,7 @@ const plugins = () => {
             }
         }),
 
-        new CleanWebpackPlugin(),
+        //new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {from: 'assets/img/', to: 'img'},
@@ -108,9 +109,9 @@ const plugins = () => {
         })
     ].concat(htmlPlugins)
 
-    if(isProd){
+    /*if(isProd){
         base.push(new BundleAnalyzerPlugin)
-    }
+    }*/
 
     return base
 }
@@ -136,7 +137,7 @@ module.exports = {
     },
     optimization: optimization(),
     devServer: {
-        port: 4200,
+        port: 4300,
         hot: isDev
     },
     devtool: isDev ? 'source-map' : '',
@@ -149,7 +150,7 @@ module.exports = {
                 loader: 'html-loader',
                 options: {
                     minimize: false,
-            }
+                }
             },
             {
                 test: /\.css$/,
