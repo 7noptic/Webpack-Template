@@ -174,7 +174,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: /node_modules\/(?!(swiper|dom7)\/).*/,
                 loader:
                     {
                         loader: 'babel-loader',

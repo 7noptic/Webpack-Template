@@ -1,22 +1,68 @@
-.animationShow{
+.animationShow {
   animation: showTabs .6s;
 }
 
-.animationHide{
+.animationHide {
   animation: hideTabs .6s;
 }
+
 @keyframes showTabs {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
-}@keyframes hideTabs {
-   0%{
-     opacity: 1;
-   }
-   100%{
-     opacity: 0;
-   }
- }
+}
+
+@keyframes hideTabs {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bot-to-top {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes top-to-bot {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+@keyframes r-to-l {
+  0% {
+    opacity: 0;
+    transform: translateX(360px);
+  }
+  100% {
+    opacity: 4;
+    transform: translateX(0);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -40,11 +40,11 @@ window.addEventListener('DOMContentLoaded', () =>{
         if (target && target.classList.contains('sidebar-bg')) {
             e.preventDefault();
             modalBlock.classList.toggle('sidebar-bg');
-            allModal.forEach(item => {
-                if (item.classList.toggle('active')) {
-                    item.classList.remove('active');
+            for(let i =0; i < allModal.length; i++){
+                if (allModal[i].classList.toggle('active')) {
+                    allModal[i].classList.remove('active');
                 }
-            });
+            }
         }
    });
    
@@ -57,18 +57,56 @@ window.addEventListener('DOMContentLoaded', () =>{
 
 
     /* TABS */
-    function toggleTabs(i = 0, link, tabs, parent, classContains) {
+    function toggleTabs(link, tabs, parent, classContains, subTabs, subLink, subContent) {
         hideTabs(link, tabs);
         showTabs(0, link, tabs);
+        /*
+        let indexPrevTabs = 0,
+            TabsPrevHeight = tabs[indexPrevTabs].clientHeight;
+        console.log(tabs[0].clientHeight);
+        */
+        let subIndex = 0;
+
+        if (subTabs) {
+            let subLinks = tabs[0].querySelectorAll(subLink),
+                subTabs = tabs[0].querySelectorAll(subContent);
+            hideTabs(subLinks, subTabs);
+            showTabs(0, subLinks, subTabs);
+        }
         parent.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains(classContains)) {
                 e.preventDefault();
-                link.forEach((item, i) => {
-                    if (item == e.target) {
+
+                for (let i = 0; i < link.length; i++) {
+                    if (link[i] === e.target) {
                         hideTabs(link, tabs);
                         showTabs(i, link, tabs);
+                        if (subTabs) {
+                            let subLinks = tabs[i].querySelectorAll(subLink),
+                                subTabs = tabs[i].querySelectorAll(subContent);
+                            hideTabs(subLinks, subTabs);
+                            showTabs(0, subLinks, subTabs);
+                            subIndex = i;
+                        }
+                        /*
+                        if(tabs[i].clientHeight > TabsPrevHeight){
+                            console.log(tabs[i].clientHeight);
+                            console.log(TabsPrevHeight);
+                        }
+                        */
                     }
-                });
+                }
+            }
+            let subLinks = tabs[subIndex].querySelectorAll(subLink),
+                subTabs = tabs[subIndex].querySelectorAll(subContent);
+            if (e.target && e.target.classList.contains(subLink)) {
+                e.preventDefault();
+                for (let i = 0; i < subLinks.length; i++) {
+                    if (subLinks[i] === e.target) {
+                        hideTabs(subLinks, subTabs);
+                        showTabs(i, subLinks, subTabs);
+                    }
+                }
             }
         });
     }
@@ -79,12 +117,12 @@ window.addEventListener('DOMContentLoaded', () =>{
     }
 
     function hideTabs(link, content) {
-        link.forEach(item => {
-            item.classList.remove('active');
-        });
-        content.forEach(item => {
-            item.classList.remove('active');
-        });
+        for(let i = 0; i < link.length; i++){
+            link[i].classList.remove('active');
+        }
+        for(let i = 0; i < content.length; i++){
+            content[i].classList.remove('active');
+        }
     }
 
     /* SHOW HIDE CONTENT */
@@ -93,12 +131,12 @@ window.addEventListener('DOMContentLoaded', () =>{
         document.addEventListener('click', (e) => {
             if(e.target && e.target.classList.contains(linkClass)){
                 e.preventDefault();
-                link.forEach((item, i) =>{
-                    if(e.target == item){
-                        item.classList.toggle('active');
+                for(let i = 0; i < link.length; i++){
+                    if (e.target == link[i]) {
+                        link[i].classList.toggle('active');
                         content[i].classList.toggle('active');
                     }
-                });
+                }
             }
         });
     }
@@ -107,32 +145,32 @@ window.addEventListener('DOMContentLoaded', () =>{
 
 
 
- /* RATING */
- let ratingParent = document.querySelector('.js-rating'),
- ratingInput = document.querySelector('#js-rating'),
- ratingStar = document.querySelectorAll('.js-rating > li');
+    /* RATING */
+    let ratingParent = document.querySelector('.js-rating'),
+    ratingInput = document.querySelector('#js-rating'),
+    ratingStar = document.querySelectorAll('.js-rating > li');
 
-if (ratingParent) {
- ratingParent.addEventListener('click', (event) => {
-     event.preventDefault();
-     const target = event.target;
-     if (target && target.tagName == 'LI') {
-         ratingStar.forEach((item, i) => {
-             item.classList.remove('active');
-         });
-         for (let i = 0; i => ratingStar.length; i++) {
-             if (ratingStar[i] == target) {
-                 ratingStar[i].classList.add('active');
-                 ratingInput.value = ++i;
-                 return
-             } else {
-                 ratingStar[i].classList.add('active');
-             }
-         }
-     }
+    if (ratingParent) {
+    ratingParent.addEventListener('click', (event) => {
+        event.preventDefault();
+        const target = event.target;
+        if (target && target.tagName == 'LI') {
+            for(let i = 0; i < ratingStar.length; i++){
+                ratingStar[i].classList.remove('active')
+            }
+            for (let i = 0; i => ratingStar.length; i++) {
+                if (ratingStar[i] == target) {
+                    ratingStar[i].classList.add('active');
+                    ratingInput.value = ++i;
+                    return
+                } else {
+                    ratingStar[i].classList.add('active');
+                }
+            }
+        }
 
- });
-}
+    });
+    }
 
 
 

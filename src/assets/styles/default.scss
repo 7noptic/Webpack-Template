@@ -34,9 +34,10 @@ html, body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Geometria', sans-serif;
   overflow-x: hidden;
-
+  background-color: #FAF6F0;
+color: $brown;
   &.lock {
     overflow: hidden;
   }
@@ -48,12 +49,12 @@ ol[class] {
 }
 
 a {
-  color: #000;
+  color: $brown;
   text-decoration: none;
-
+  transition: $transition2;
   &:hover {
     text-decoration: none;
-    color: #000;
+    color: $gold;
   }
 }
 
@@ -65,13 +66,36 @@ img {
   max-width: 100%;
   display: block;
 }
+.sidebar-bg{
+  width: 100%;
+height: 100%;
+z-index: 999;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+  animation: opacity .5s;
+  &::before{
+    content: "";
+    animation: opacity .5s;
 
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,.5);
+z-index: 999;
+  }
+}
 
 input,
 button,
 textarea,
 select {
   font: inherit;
+  color: $brown;
 }
 
 button,
@@ -89,6 +113,7 @@ textarea:focus {
   cursor: pointer;
   border: none;
   outline: none;
+  
 }
 
 button,
