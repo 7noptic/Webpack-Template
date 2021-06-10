@@ -9,35 +9,54 @@ ol[class] {
   padding: 0;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol[class], ul[class], li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,body.blog {
   margin: 0;
-
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 html, body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: 'Geometria', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
-  background-color: #FAF6F0;
-color: $brown;
+  background-color: #FFFFFF;
+  color: #000;
+  font-size: 14px;
+
   &.lock {
     overflow: hidden;
   }
@@ -49,12 +68,13 @@ ol[class] {
 }
 
 a {
-  color: $brown;
+  color: #000;
   text-decoration: none;
-  transition: $transition2;
+  transition: $tr2;
+
   &:hover {
     text-decoration: none;
-    color: $gold;
+    color: #ff0000;
   }
 }
 
@@ -66,27 +86,35 @@ img {
   max-width: 100%;
   display: block;
 }
-.sidebar-bg{
+
+.sidebar-bg {
   width: 100%;
-height: 100%;
-z-index: 999;
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
+  height: 100%;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   animation: opacity .5s;
-  &::before{
+
+  &::before {
     content: "";
     animation: opacity .5s;
 
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0,0,0,.5);
-z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 999;
+  }
+}
+
+header, footer, main {
+  &.blur {
+    filter: blur(15px);
   }
 }
 
@@ -95,7 +123,7 @@ button,
 textarea,
 select {
   font: inherit;
-  color: $brown;
+  color: #000;
 }
 
 button,
@@ -113,16 +141,16 @@ textarea:focus {
   cursor: pointer;
   border: none;
   outline: none;
-  
+
 }
 
 button,
 button:active,
 button:hover,
-button:focus{
+button:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
-       appearance: none;
+  appearance: none;
 }
 
 textarea {
@@ -136,4 +164,69 @@ textarea {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+a.added_to_cart.wc-forward {
+  display: none;
+}
+
+.wpcf7 .ajax-loader {
+  display: none !important;
+}
+
+.wl-button__remove {
+  position: absolute;
+  top: 20px !important;
+  right: 26px !important;
+  display: block;
+  width: 20px !important;
+  height: 20px !important;
+  color: #6d6d6d;
+  fill: #6d6d6d;
+  background-color: transparent !important;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+
+@media (max-width: 767px) {
+  .wl-button__remove {
+    right: 10px !important;
+  }
+}
+
+.wpcf7 form.sent .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output,
+.wpcf7 form.spam .wpcf7-response-output,
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output {
+  display: none !important;
+}
+
+div.wpcf7 .ajax-loader {
+  display: none !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

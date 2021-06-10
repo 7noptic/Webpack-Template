@@ -1,0 +1,46 @@
+.kama_breadcrumbs {
+  z-index: 10;
+  position: relative;
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: bold;
+    color: gray;
+    & > span {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 21px;
+      font-weight: 500;
+      opacity: 1;
+      transition: $tr3;
+      padding-right: 30px;
+      position: relative;
+
+      &.kb_title {
+        opacity: .4;
+        padding-right: 0;
+        font-weight: bold;
+      }
+
+      &.kb_sep {
+        position: relative;
+        padding-right: 0;
+
+        &::after {
+          //content: url('../img/hc.svg');
+          display: inline-block;
+          position: absolute;
+          top: -1px;
+
+          right: 12px;
+        }
+      }
+    }
+  }
+}
+
+

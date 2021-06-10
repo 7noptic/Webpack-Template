@@ -1,35 +1,189 @@
 .modal {
-    position: fixed;
-    top: 0;
-    display: block;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  right: -200%;
+  height: 100%;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.22);
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.22);
+  transition: $tr3;
+
+  &.adaptive-menu {
+    padding: 40px 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  &.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__wrapper {
+    padding: 70px 30px 30px;
+
+    background: transparent;
+    z-index: 1001;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
     width: 100%;
-    max-width: 360px;
-    right: -1000%;
-    padding: 20px;
     height: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    -webkit-box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.22);
-    box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.22);
-  
-    &.active {
-      right: 0;
-      animation-name: r-to-l;
-      animation-duration: .5s;
+
+    &::-webkit-scrollbar {
+      width: 0;
     }
-  
-    &__wrapper {
-      padding: 30px;
+  }
+
+  &__exit {
+    position: fixed;
+    top: 50px;
+    right: 5px;
+    transition: $tr3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-2 {
+      position: relative;
+      transition: $tr3;
       display: flex;
       justify-content: center;
-      flex-direction: column;
-      overflow-x: hidden;
       align-items: center;
-      width: 100%;
-      height: 100%;
+      z-index: 10;
+
+      &:hover {
+        transform: rotate(-180deg);
+        transform-origin: center;
+      }
     }
-  
-    
-  
+
+    &:hover {
+      transform: rotate(-180deg);
+      transform-origin: center;
+    }
   }
+
+  &__title {
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &-form {
+    width: 100%;
+
+    &__wrapper {
+
+
+      span {
+        width: 100%;
+        margin-bottom: 30px;
+        display: block;
+
+        label {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          padding: 0 30px;
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 20px;
+          margin-bottom: -15px;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    &__btn {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: #fff;
+    }
+
+    &__agreement {
+      max-width: 320px;
+      margin: 0 auto;
+      text-align: center;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &__btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        width: 48%;
+      }
+    }
+
+    &__star {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+
+      ul {
+        li {
+          cursor: pointer;
+
+        }
+      }
+    }
+  }
+}
+
+.adaptive-menu {
+  right: auto;
+  left: -200%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.active {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .modal {
+    &__title {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 20px;
+    }
+  }
+}

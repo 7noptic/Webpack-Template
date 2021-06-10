@@ -11,6 +11,11 @@
     "build-and-beautify": "del-cli dist && webpack --mode production && html dist/*.html --indent-size 2",
     "beautify": "html dist/*.html --indent-size 2"
   },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
   "browserslist": "> 0.25%, not dead",
   "author": "Leonid Shurakov <7noptic@gmail.com>",
   "license": "ISC",
@@ -21,9 +26,10 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@staaky/fresco": "^2.3.1",
+    "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^5.0.0-beta3",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.1.0",
     "cross-env": "^7.0.3",
@@ -48,10 +54,13 @@
     "offcanvas-bootstrap": "^2.5.2",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "popper.js": "^1.14.3",
+    "postcss": "^8.2.4",
+    "postcss-loader": "^4.2.0",
     "raw-loader": "^4.0.1",
     "readmore-js": "^3.0.0-beta-1",
-    "sass": "^1.26.10",
-    "sass-loader": "^10.0.2",
+    "rm": "^0.1.8",
+    "sass": "^1.34.1",
+    "sass-loader": "^10.1.1",
     "style-loader": "^1.2.1",
     "swiper": "^6.4.5",
     "terser-webpack-plugin": "^4.1.0",

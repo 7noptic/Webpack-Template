@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 //const { CleanWebpackPlugin } = require('clean-webpack-plugcssin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -9,6 +10,7 @@ const fs = require('fs');
 //Проверка в каком режиме собирается проект
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
+
 //Поиск HTML
 
 function generateHtmlPlugins(templateDir) {
@@ -27,6 +29,7 @@ function generateHtmlPlugins(templateDir) {
         })
     })
 }
+
 const htmlPlugins = generateHtmlPlugins('./src/assets/html/views')
 
 //Оптимизация??
@@ -63,7 +66,16 @@ const cssLoaders = extra => {
             options: {
                 url: true
             }
-        }
+        },
+        {
+            loader: 'postcss-loader',
+            options: {
+
+                sourceMap: true
+            }
+        },
+
+
     ];
     if (extra) {
         loaders.push(extra)
@@ -106,7 +118,8 @@ const plugins = () => {
 
         new MiniCssExtractPlugin({
             filename: fileName('css'),
-        })
+        }),
+
     ].concat(htmlPlugins)
 
     /*if(isProd){

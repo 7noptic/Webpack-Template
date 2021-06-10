@@ -1,0 +1,40 @@
+.map {
+  position: relative;
+  margin-bottom: 150px;
+
+  iframe {
+    width: 100%;
+    height: 440px;
+    border: none;
+  }
+
+  
+}
+
+@media screen and (max-width: 991px) {
+  .map {
+    margin-bottom: 100px;
+    iframe {
+      height: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .map {
+    margin-bottom: 50px;
+    iframe {
+      height: 350px;
+    }
+  }
+}
+@media (max-width: 575px){
+  .map{
+    iframe{
+      width: calc(100% + 30px);
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+}
+

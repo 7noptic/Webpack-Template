@@ -1,0 +1,20 @@
+.tab {
+  display: none;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  transition: $tr3;
+  width: 100%;
+
+
+  &.active {
+    animation: showTabs .5s;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+

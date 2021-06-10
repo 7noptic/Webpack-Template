@@ -1,0 +1,48 @@
+.form {
+  &__input {
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    border: 1px solid #C9BBAE;
+    transition: $tr3;
+    width: 100%;
+    background: #fff;
+
+    &::placeholder {
+    }
+
+    &:hover {
+    }
+
+    &:active, &:focus {
+    }
+  }
+  &__textarea{
+    height: 120px;
+  }
+
+  &__upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #473512;
+
+    opacity: 0.75;
+    border: 1px dashed #473512;
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: $tr3;
+    margin-bottom: 20px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+

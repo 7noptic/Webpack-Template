@@ -1,0 +1,73 @@
+.modal-one-click {
+  &__item {
+    margin-bottom: 40px;
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 700;
+    display: block;
+  }
+
+  &__price {
+    font-size: 14px;
+    line-height: 24px;
+    padding-right: 5px;
+    display: flex;
+
+    span {
+      margin-left: 5px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+  }
+
+  &__count {
+    display: flex;
+
+  }
+
+  &__minus, &__plus {
+    height: 30px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EFEFEF;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  &__num {
+    border: 1px solid #CBCBCB;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+
+    &::placeholder {
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .modal-one-click {
+    &__price {
+      width: 100%;
+    }
+  }
+}

@@ -1,21 +1,22 @@
-.rating-star{
-    display: inline-block;
-    & li{
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      //background-image: url('../img/ratingstar.svg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    & li.active{
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      //background-image: url('../img/ratingstaractive.svg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+.rating-star {
+  display: inline-flex;
+  & li {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    //background-image: url('../img/ratingstar.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
+
+  & li.active {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    //background-image: url('../img/ratingstaractive.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

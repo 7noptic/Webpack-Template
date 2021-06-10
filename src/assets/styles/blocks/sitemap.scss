@@ -1,0 +1,18 @@
+.sitemap{
+  margin-bottom: 60px;
+  &-nav{
+    display: flex;
+    flex-direction: column;
+    &__link{
+      display: block;
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: 20px;
+      position: relative;
+
+      &:hover {
+
+      }
+    }
+  }
+}
